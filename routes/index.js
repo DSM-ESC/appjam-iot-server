@@ -9,7 +9,7 @@ const ser = new Serial('/dev/ttyACM0', {
 router.post("/iot", function (req, res, next) {
   const {type, power} = req.body;
   const p = power ? 1 : 0;
-  ser.write(`${type} ${p}`, function (err) {
+  ser.write(`${type} ${p}\n`, function (err) {
     if (err) {
       console.error(err);
       res.json({success: false});
