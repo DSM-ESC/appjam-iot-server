@@ -3,8 +3,7 @@ const Serial = require('serialport');
 const router = express.Router();
 
 const ser = new Serial('/dev/ttyACM0', {
-  baudrate: 9600,
-  parser: Serial.parsers.readline('\n')
+  baudRate: 9600,
 });
 
 router.post("/iot", function (req, res, next) {
@@ -24,5 +23,4 @@ router.post('/test', function (req, res, next) {
   console.log(req.body.message);
   res.json({success: true});
 });
-
 module.exports = router;
